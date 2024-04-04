@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+
+    <h1>Form Blog</h1>
+    <div>
+        <form action="">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title">
+            </div>
+            <div>
+                <label for="content">Content</label>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="image"></label>
+                <input type="file" id="input-image">
+            </div>
+            <button type="input" onclick="addProject(event)">Submit</button>
+        </form>
+    </div>
+
+    <script src="blog.js"></script>
+</body>
+
+</html>

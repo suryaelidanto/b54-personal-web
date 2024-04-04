@@ -1,0 +1,27 @@
+* {
+    width: 350px;
+    margin: auto;
+    padding: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    /* background-color: grey; */
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-right: -35px;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea{
+    resize: none;
+}

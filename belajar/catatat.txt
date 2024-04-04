@@ -1,0 +1,92 @@
+Tipe data dalam Javascript
+1. Number
+2. String
+3. Boolean
+4. Null
+5. Undif
+6. Symbol
+7. NaN
+8. Object
+9. Array
+10. Big Int
+
+
+Tipe data Primitif
+Selain Array dan Object
+
+Tipe data Unprimitif / Non Primitf
+1. Object
+2. Array
+
+Apa itu Object?
+Kata kunci atau nilai
+untuk menyimpan nilai
+pasangan key dan value
+data struktur
+
+Kesimpulan : Tipe data yang dapat menyimpan beberapa tipe data lain yang berbeda yang terstruktur dalam bentuk properti dan nilai
+
+Contoh :
+
+let person = {
+    name: "sby",
+    age: 21,
+    status: true
+}
+
+name, age dan status adalah properti dari Object
+sby, 21, dan true merupakn nilai dari propertinya
+
+
+
+Apa itu Array?
+tempat untuk menyimpan sebuah kumpulan data, misal 
+var buah = apel, jeruk, salak
+
+untuk menyimpan data yang memiliki sebuah indeks yang beurutan
+memiliki tipe data yang sama
+
+bisa menyimpan sebuah nilai dan variable
+
+Kesimpulan : sekumpulan data yang memiliki tipe data yang sama atau juga tidak dan memiliki indeks yang berurutan
+
+let myArray = [
+    "coklat", "strawberi", 2, true
+]
+
+
+Apa itu Array of Obejct??
+Struktur data yang setiap element dalam array adalah sebuah Object
+
+kumpulan data homogen yang menyimpan rangkain object bernomer di satu tempat
+tipe data yang sama(homogen)
+
+sebuah array yang berisi object2
+
+Kesimpulan : struktur data yang setiap element memilik obejct yang memiliki data homogen dalam satu tempat.
+
+- Tipe data yang menyimpan beberapa Object dalam satu variable Array. Setiap Object dalam Array memiliki properti dan nilainya(value) masing-masing.
+
+let cars = [
+    {
+        color: "Red",
+        type: "Diesel"
+    },
+    {
+        color: "Blue",
+        type: "Bensin"
+    }
+]
+
+var mahasiswa = [
+    {
+        name: "Johowi",
+        jurusan: "Mabel",
+        usia: 76
+    },
+    {
+        name: "Kaesang",
+        jurusan: "Pisang",
+        status: true
+    }
+]
