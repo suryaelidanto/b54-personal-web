@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="blog.css">
+</head>
+
+<body>
+
+    <h1>Form Blog</h1>
+    <div>
+        <form action="">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title">
+            </div>
+            <div>
+                <label for="startdate">Start Date</label>
+                <input type="date" id="startdate">
+            </div>
+            <div>
+                <label for="enddate">End Date</label>
+                <input type="date" id="enddate">
+            </div>
+            <div>
+                <label for="content">Content</label>
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="image"></label>
+                <input type="file" id="input-image">
+            </div>
+            <button type="input" onclick="addProject(event)">Submit</button>
+            <!-- // Fungsi Prefent Default
+            // 1. untuk menampung nilai yang sudah diinput dari form
+            // 2. Untuk mencegah browser melakukan refresh, karena type
+            // dari buttonnya adalah submit yang mana submit secara otomatis merefresh -->
+
+        </form>
+    </div>
+
+    <div id="list-project">
+        <img src="project.png" alt="ini adalah gambar project">
+        <h3>Ini adalah Title</h3>
+        <p>(05-04-2024) - (12-04-2024)</p>
+        <p>Durasi : 3 Bulan</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto debitis commodi necessitatibus, dolor maxime
+            distinctio praesentium illum quas cum quisquam modi fugit iure adipisci consequuntur accusamus harum
+            recusandae architecto optio.</p>
+    </div>
+
+    <script src="blogBaru.js"></script>
+</body>
+
+</html>
