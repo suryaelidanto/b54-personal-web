@@ -1,0 +1,41 @@
+.navbar {
+    background-color: #f4f3f3;
+    padding: 20px;
+}
+
+.navbar-ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.navbar-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: black
+}
+
+.active {
+    color: orangered;
+}
+
+.navbar-logo {
+    width: 50px;
+}
+
+.navbar-contact-btn {
+    padding: 10px;
+    background-color: orangered;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-decoration: none;
+}
