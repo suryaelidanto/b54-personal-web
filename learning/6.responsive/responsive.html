@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media only screen and (orientation: landscape) {
+        .container {
+          flex-direction: row;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>box 1</div>
+      <div>box 2</div>
+      <div>box 3</div>
+    </div>
+  </body>
+</html>

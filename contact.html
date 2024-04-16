@@ -1,58 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
-<head>
+  <head>
     <title>Contact Me</title>
-    <link rel="stylesheet" href="assets/css/index.css" />
-    <link rel="stylesheet" href="assets/css/nav.css" />
-    <link rel="stylesheet" href="assets/css/contact.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="assets/css/index.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/nav.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/contact.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width; initial-scale=1.0"
+    />
+  </head>
 
-<body>
+  <body>
     <nav class="navbar">
-        <ul class="navbar-ul">
-            <div class="navbar-left">
-                <li>
-                    <img src="assets/img/dumbways.png" class="navbar-logo" />
-                </li>
-                <li>
-                    <a href="index.html" class="navbar-link"> Home </a>
-                </li>
-                <li>
-                    <a href="blog.html" class="navbar-link"> Blog </a>
-                </li>
-            </div>
-            <div class="navbar-right">
-                <li>
-                    <a href="contact.html" class="navbar-contact-btn"> Contact </a>
-                </li>
-            </div>
-        </ul>
+      <ul class="navbar-ul">
+        <div class="navbar-left">
+          <li>
+            <img
+              src="assets/img/dumbways.png"
+              class="navbar-logo"
+            />
+          </li>
+          <li>
+            <a
+              href="index.html"
+              class="navbar-link"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="blog.html"
+              class="navbar-link"
+            >
+              Blog
+            </a>
+          </li>
+        </div>
+        <div class="navbar-right">
+          <li>
+            <a
+              href="contact.html"
+              class="navbar-contact-btn"
+            >
+              Contact
+            </a>
+          </li>
+          <button
+            id="hamburger-button"
+            onclick="toggleHamburger()"
+          >
+            <i class="fa-solid fa-bars fa-2x"></i>
+          </button>
+        </div>
+      </ul>
     </nav>
-
-    <div style="display: flex; width: 100%; justify-content: center; margin-top: 20px;">
-        <form style="display: flex; flex-direction: column; width: 300px; justify-content: center;"
-            onsubmit="submitData(event)">
-            <label class="label-style" for="name">Name</label>
-            <input class="input-style" id="name" />
-            <label class="label-style" for="email">Email</label>
-            <input class="input-style" id="email" />
-            <label class="label-style" for="phoneNumber">Phone Number</label>
-            <input class="input-style" id="phoneNumber" />
-            <label class="label-style" for="subject">Subject</label>
-            <select class="input-style" id="subject">
-                <option>Frontend Developer</option>
-                <option>Backend Developer</option>
-                <option>Fullstack Developer</option>
-            </select>
-            <label class="label-style" for="message">Your message</label>
-            <textarea class="input-style" id="message"></textarea>
-            <button type="submit" class="btn-submit">Submit</button>
-        </form>
+    <div class="hamburger-container hide">
+      <a
+        href="index.html"
+        class="hamburger-nav-link"
+      >
+        Home
+      </a>
+      <a
+        href="blog.html"
+        class="hamburger-nav-link"
+      >
+        Blog
+      </a>
+      <a
+        href="contact.html"
+        class="hamburger-nav-link hamburger-active"
+      >
+        Contact
+      </a>
     </div>
 
-    <script src="assets/js/contact.js">
-    </script>
-</body>
+    <div
+      style="
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        margin-top: 20px;
+      "
+    >
+      <form
+        style="
+          display: flex;
+          flex-direction: column;
+          width: 300px;
+          justify-content: center;
+        "
+        onsubmit="submitData(event)"
+      >
+        <label
+          class="label-style"
+          for="name"
+          >Name</label
+        >
+        <input
+          class="input-style"
+          id="name"
+        />
+        <label
+          class="label-style"
+          for="email"
+          >Email</label
+        >
+        <input
+          class="input-style"
+          id="email"
+        />
+        <label
+          class="label-style"
+          for="phoneNumber"
+          >Phone Number</label
+        >
+        <input
+          class="input-style"
+          id="phoneNumber"
+        />
+        <label
+          class="label-style"
+          for="subject"
+          >Subject</label
+        >
+        <select
+          class="input-style"
+          id="subject"
+        >
+          <option>Frontend Developer</option>
+          <option>Backend Developer</option>
+          <option>Fullstack Developer</option>
+        </select>
+        <label
+          class="label-style"
+          for="message"
+          >Your message</label
+        >
+        <textarea
+          class="input-style"
+          id="message"
+        ></textarea>
+        <button
+          type="submit"
+          class="btn-submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
 
+    <script src="./assets/js/nav.js"></script>
+    <script src="assets/js/contact.js"></script>
+  </body>
 </html>

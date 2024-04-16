@@ -17,6 +17,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <meta
+      name="viewport"
+      content="width=device-width; initial-scale=1.0"
+    />
   </head>
 
   <body>
@@ -55,9 +59,35 @@
               Contact
             </a>
           </li>
+          <button
+            id="hamburger-button"
+            onclick="toggleHamburger()"
+          >
+            <i class="fa-solid fa-bars fa-2x"></i>
+          </button>
         </div>
       </ul>
     </nav>
+    <div class="hamburger-container hide">
+      <a
+        href="index.html"
+        class="hamburger-nav-link"
+      >
+        Home
+      </a>
+      <a
+        href="blog.html"
+        class="hamburger-nav-link hamburger-active"
+      >
+        Blog
+      </a>
+      <a
+        href="contact.html"
+        class="hamburger-nav-link"
+      >
+        Contact
+      </a>
+    </div>
 
     <div class="blog">
       <div class="blog-form">
@@ -141,6 +171,8 @@
             </div> -->
       </div>
     </div>
+
+    <script src="./assets/js/nav.js"></script>
     <script src="assets/js/blog.js"></script>
   </body>
 </html>

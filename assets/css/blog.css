@@ -38,7 +38,6 @@ select {
 }
 
 .blog-form form .input-blog-image-group {
-  width: 100%;
   font-size: 20px;
   font-weight: 400;
   padding: 8px;
@@ -197,4 +196,15 @@ select {
   font-size: 24px;
   line-height: 140%;
   text-align: justify;
+}
+
+@media only screen and (max-width: 1153px) {
+  .blog-form .form-container {
+    width: 100%;
+    margin: 0px 30px;
+  }
+
+  .blog .blog-list .blog-list-item {
+    flex-direction: column;
+  }
 }

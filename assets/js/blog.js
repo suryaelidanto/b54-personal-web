@@ -1,20 +1,11 @@
-const blogs = [
-  {
-    title: "Title 1",
-    content:
-      "LoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLoremLorem",
-    image: "default.jpg",
-    tech: ["reactjs"],
-    createdAt: new Date(),
-  },
-];
+const blogs = [];
 
 function addBlog(e) {
   e.preventDefault();
 
-  const title = document.getElementById("input-blog-title").value;
-  const content = document.getElementById("input-blog-content").value;
-  let image = document.getElementById("input-blog-image").files;
+  const title = document.getElementById("input-blog-title").value; // title 1
+  const content = document.getElementById("input-blog-content").value; // content 1
+  let image = document.getElementById("input-blog-image").files; // cat.jpg
   // const nodejs = document.getElementById("nodejs").checked // checked = true
   // const python = document.getElementById("python").checked
 
@@ -80,12 +71,12 @@ function renderBlog() {
                 <div class="detail-blog-content">
                     ${getFullTime(blogs[index].createdAt)} | Ichsan Emrald Alamsyah
                 </div>
-                <p>
+                <p style="width: 100%;">
                   ${blogs[index].content}
                 </p>
 
                 <div> 
-                    <p>${getDistanceTime(blogs[index].createdAt)}</p>
+                    <p style="width:100%">${getDistanceTime(blogs[index].createdAt)}</p>
                 </div>
             </div>
         </div>
