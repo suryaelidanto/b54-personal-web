@@ -1,32 +1,96 @@
 <!doctype html>
 <html>
   <head>
-    <title>My Personal Website</title>
+    <title>B54 - Project Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="assets/css/index.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/nav.css"
+    />
   </head>
+
   <body>
+    <nav class="navbar">
+      <ul class="navbar-ul">
+        <div class="navbar-left">
+          <li>
+            <img
+              src="assets/img/dumbways.png"
+              class="navbar-logo"
+            />
+          </li>
+          <li>
+            <a
+              href="index.html"
+              class="navbar-link active"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="blog.html"
+              class="navbar-link"
+            >
+              Blog
+            </a>
+          </li>
+        </div>
+        <div class="navbar-right">
+          <li>
+            <a
+              href="contact.html"
+              class="navbar-contact-btn"
+            >
+              Contact
+            </a>
+          </li>
+        </div>
+      </ul>
+    </nav>
+
     <div
       style="
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        width: 300px;
-        margin: auto;
+        margin: 20px auto;
         padding: 20px;
+        width: 300px;
+        box-shadow: 0px 0px 10px 0px black;
+        border-radius: 10px;
       "
     >
-      <img src="./assets/img/profile.jpg" style="width: 100%; border-radius: 10px" />
+      <img
+        src="./assets/img/naruto.jpg"
+        alt="Ini tuh gambar naruto bro"
+        style="
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 20px;
+        "
+      />
       <h1>Cintara Surya Elidanto</h1>
       <p>
-        Hello my name is Cintara Surya Elidanto. I'm a fullstack developer at PT
-        Dumbways Teknologi Indonesia.
+        Saya adalah seorang Fullstack Developer. Saya memiliki pengalaman di
+        bidang pemrograman selama kurang lebih 5 tahun.
       </p>
-      <table border="2px" style="width: 100%">
+      <table
+        border="1"
+        style="width: 100%"
+      >
         <tr>
           <th>Experience</th>
           <th>Year</th>
         </tr>
         <tr>
-          <td style="text-align: center">Develop Personal Web</td>
-          <td style="text-align: center">2024</td>
+          <td>Internship in Dumbways</td>
+          <td>2020</td>
+        </tr>
+        <tr>
+          <td>CEO in Dumbways</td>
+          <td>2021</td>
         </tr>
       </table>
     </div>
