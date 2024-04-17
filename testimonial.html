@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testimonial</title>
+    <link rel="stylesheet" href="assets/css/nav.css" />
+    <link rel="stylesheet" href="assets/css/testimonial.css" />
+    <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="navbar-ul">
+          <div class="navbar-left">
+            <li>
+              <img
+                src="assets/img/dumbways.png"
+                class="navbar-logo"
+              />
+            </li>
+            <li>
+              <a
+                href="index.html"
+                class="navbar-link"
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a
+                href="blog.html"
+                class="navbar-link active"
+              >
+                Blog
+              </a>
+            </li>
+          </div>
+          <div class="navbar-right">
+            <li>
+              <a
+                href="contact.html"
+                class="navbar-contact-btn"
+              >
+                Contact
+              </a>
+            </li>
+            <button
+              id="hamburger-button"
+              onclick="toggleHamburger()"
+            >
+              <i class="fa-solid fa-bars fa-2x"></i>
+            </button>
+          </div>
+        </ul>
+      </nav>
+      <div class="hamburger-container hide">
+        <a
+          href="index.html"
+          class="hamburger-nav-link"
+        >
+          Home
+        </a>
+        <a
+          href="blog.html"
+          class="hamburger-nav-link hamburger-active"
+        >
+          Blog
+        </a>
+        <a
+          href="contact.html"
+          class="hamburger-nav-link"
+        >
+          Contact
+        </a>
+      </div>
+
+    <div class="container">
+        <h1>My Testimonials</h1>
+        <div class="container-rating">
+            <h2> Rating By Star</h2>
+            <div class="rating">
+                <button class="rating-btn">
+                    All
+                </button>
+                <button class="rating-btn">
+                    1 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn">
+                    2 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn">
+                    3 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn">
+                    4 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn">
+                    5 <i class="fa-solid fa-star"></i>
+                </button>
+            </div>
+        </div>
+
+        <section class="testimonials" id="testimonials">
+           
+        </section>
+    </div>
+    <script src="assets/js/testimonial.js"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/nav.js"></script>
+</body>
+
+</html>
