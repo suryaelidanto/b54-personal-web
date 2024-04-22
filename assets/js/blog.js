@@ -56,30 +56,29 @@ function renderBlog() {
     // }
 
     html += `
-        <div class="blog-list-item">
-            <div class="blog-image">
-                <img src="${blogs[index].image}" alt="" />
-            </div>
-            <div class="blog-content">
-                <div class="btn-group">
-                    <button class="btn-edit">Edit Post</button>
-                    <button class="btn-post">Delete Post</button>
-                </div>
-                <h1>
-                    <a href="blog-detail.html" target="_blank">${blogs[index].title}</a>
-                </h1>
-                <div class="detail-blog-content">
-                    ${getFullTime(blogs[index].createdAt)} | Ichsan Emrald Alamsyah
-                </div>
-                <p style="width: 100%;">
-                  ${blogs[index].content}
-                </p>
-
-                <div> 
-                    <p style="width:100%">${getDistanceTime(blogs[index].createdAt)}</p>
-                </div>
-            </div>
+        <div class="card d-flex flex-row">
+        <img
+          src="${blogs[index].image}"
+          class="card-img-top w-25"
+          alt="..."
+        />
+        <div class="card-body d-flex flex-column align-items-start">
+          <div class="w-100 d-flex justify-content-end">
+            <a href="#" class="btn btn-secondary mx-2">Edit Post</a>
+            <a href="#" class="btn btn-warning">Delete Post</a>
+          </div>
+          <h5 class="card-title fw-bold">${blogs[index].title}</h5>
+            <p class="card-text">
+            ${getFullTime(blogs[index].createdAt)} | Ichsan Emrald Alamsyah
+            </p>
+          <p class="card-text">
+          ${blogs[index].content}
+          </p>
+          <p class="card-text">
+          ${getDistanceTime(blogs[index].createdAt)}
+          </p>
         </div>
+      </div>
 `;
   }
 

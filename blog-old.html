@@ -1,0 +1,178 @@
+<html>
+  <head>
+    <title>Creating Blog Page</title>
+    <link
+      rel="stylesheet"
+      href="assets/css/index.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/nav.css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/blog.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width; initial-scale=1.0"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar-ul">
+        <div class="navbar-left">
+          <li>
+            <img
+              src="assets/img/dumbways.png"
+              class="navbar-logo"
+            />
+          </li>
+          <li>
+            <a
+              href="index.html"
+              class="navbar-link"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              href="blog.html"
+              class="navbar-link active"
+            >
+              Blog
+            </a>
+          </li>
+        </div>
+        <div class="navbar-right">
+          <li>
+            <a
+              href="contact.html"
+              class="navbar-contact-btn"
+            >
+              Contact
+            </a>
+          </li>
+          <button
+            id="hamburger-button"
+            onclick="toggleHamburger()"
+          >
+            <i class="fa-solid fa-bars fa-2x"></i>
+          </button>
+        </div>
+      </ul>
+    </nav>
+    <div class="hamburger-container hide">
+      <a
+        href="index.html"
+        class="hamburger-nav-link"
+      >
+        Home
+      </a>
+      <a
+        href="blog.html"
+        class="hamburger-nav-link hamburger-active"
+      >
+        Blog
+      </a>
+      <a
+        href="contact.html"
+        class="hamburger-nav-link"
+      >
+        Contact
+      </a>
+    </div>
+
+    <div class="blog">
+      <div class="blog-form">
+        <div class="form-container">
+          <form onsubmit="addBlog(event)">
+            <h1>Create Post Blog</h1>
+            <div>
+              <label for="input-blog-title">Title</label>
+              <input id="input-blog-title" />
+            </div>
+            <div>
+              <label for="input-blog-content">Content</label>
+              <textarea id="input-blog-content"></textarea>
+            </div>
+            <!-- <div>
+                        <div style="display: flex; gap : 2">
+                            <input type="checkbox" id="nodejs" value="nodejs" />
+                            <label>NodeJs</label>
+                        </div>
+                        <div style="display: flex; gap : 2">
+                            <input type="checkbox" id="python" value="python" />
+                            <label>Python</label>
+                        </div>
+                    </div> -->
+            <div>
+              <label>Upload Image</label>
+              <div class="input-blog-image-group">
+                <label for="input-blog-image">
+                  <p>Attach File</p>
+                  <img
+                    src="assets/icon/file.png"
+                    alt="file"
+                  />
+                </label>
+                <input
+                  type="file"
+                  id="input-blog-image"
+                  hidden
+                />
+              </div>
+            </div>
+            <div class="button-group">
+              <button>Post Blog</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <hr class="line" />
+      <div
+        id="contents"
+        class="blog-list"
+      >
+        <!-- dynamic content would be here -->
+        <!-- <div class="blog-list-item">
+                <div class="blog-image">
+                    <img src="assets/img/blog.png" alt="" />
+                </div>
+                <div class="blog-content">
+                    <div class="btn-group">
+                        <button class="btn-edit">Edit Post</button>
+                        <button class="btn-post">Delete Post</button>
+                    </div>
+                    <h1>
+                        <a href="blog-detail.html" target="_blank">Pasar Coding di Indonesia Dinilai Masih
+                            Menjanjikan</a>
+                    </h1>
+                    <div class="detail-blog-content">
+                        12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah
+                    </div>
+                    <p>
+                        Ketimpangan sumber daya manusia (SDM) di sektor digital masih
+                        menjadi isu yang belum terpecahkan. Berdasarkan penelitian
+                        ManpowerGroup, ketimpangan SDM global, termasuk Indonesia,
+                        meningkat dua kali lipat dalam satu dekade terakhir. Lorem ipsum,
+                        dolor sit amet consectetur adipisicing elit. Quam, molestiae
+                        numquam! Deleniti maiores expedita eaque deserunt quaerat! Dicta,
+                        eligendi debitis?
+                    </p>
+                </div>
+            </div> -->
+      </div>
+    </div>
+
+    <script src="./assets/js/nav.js"></script>
+    <script src="assets/js/blog.js"></script>
+  </body>
+</html>
