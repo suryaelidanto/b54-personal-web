@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,8 +24,8 @@
       bold; }
     </style>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+ <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
         <img
           src="../assets/img/dumbways.png"
@@ -60,33 +60,33 @@
     </nav>
 
     <div class="container text-center my-5">
-      <div class="d-flex justify-content-end">
-        <a href="/add-blog" class="btn btn-warning">Add New Blog</a>
-      </div>
-      <hr class="line" />
-      <div id="contents" class="blog-list">
-        {{#each data}}
-          <div class="card d-flex flex-row">
-            <img src="{{image}}" class="card-img-top w-25" alt="..." />
-            <div class="card-body d-flex flex-column align-items-start">
-              <div class="w-100 d-flex justify-content-end">
-                <a href="/edit-blog/{{@index}}" class="btn btn-secondary mx-2">Edit Post</a>
-                <form onsubmit="deletePost({{@index}})">
-                  <button class="btn btn-warning">Delete Post</button>
-                </form>
-              </div>
-              <h5 class="card-title fw-bold">{{title}}</h5>
-              <p class="card-text">
-              </p>
-              <p class="card-text">
-                {{content}}
-              </p>
-              <p class="card-text">
-              </p>
-            </div>
-          </div>
-        {{/each}}
-      </div>
+      <h1>Create Post Blog</h1>
+
+      <form method="post" action="/blog">
+        <div class="input-group mb-3 d-flex flex-column align-items-start">
+          <label style="font-weight: bold">Title</label>
+          <input type="text" class="form-control w-100" id="input-blog-title" name="title" />
+        </div>
+
+        <div class="input-group mb-3 d-flex flex-column align-items-start">
+          <label style="font-weight: bold">Content</label>
+          <textarea
+            class="form-control w-100"
+            aria-label="With textarea"
+            id="input-blog-content"
+            name="content"
+          ></textarea>
+        </div>
+
+        <div class="input-group mb-3 d-flex flex-column align-items-start">
+          <label style="font-weight: bold">Upload Image</label>
+          <input type="file" class="form-control w-100" id="input-blog-image" />
+        </div>
+
+        <div class="w-100 d-flex justify-content-end">
+          <button class="btn btn-warning p-3" type="submit">Post Blog</button>
+        </div>
+      </form>
     </div>
 
     <script

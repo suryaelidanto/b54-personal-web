@@ -18,7 +18,14 @@ app.use(express.urlencoded({ extended: false }));
 // route
 app.get("/", home);
 app.get("/blog", blog);
+
 app.post("/blog", addBlog);
+app.post("/edit-blog", editBlog);
+app.delete("/blog/:id", deleteBlog);
+
+app.get("/add-blog", addBlogView);
+app.get("/edit-blog/:id", editBlogView);
+
 app.get("/contact", contact);
 app.get("/testimonial", testimonial);
 app.get("/blog-detail/:id", blogDetail);
@@ -37,12 +44,45 @@ function blog(req, res) {
 function addBlog(req, res) {
   const { title, content } = req.body;
 
-  data.push({
+  data.unshift({
     title,
     content,
+    image:
+      "https://images.pexels.com/photos/21558419/pexels-photo-21558419/free-photo-of-black-and-white-photograph-of-daisies-in-the-sun.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
   });
 
   res.redirect("blog");
+}
+
+function deleteBlog(req, res) {
+  const { id } = req.params;
+
+  data.splice(id, 1);
+  res.redirect("/blog");
+}
+
+function editBlog(req,res) {
+  const {title, content, id} = req.body
+
+  data[id] = {
+    title,
+    content
+  }
+
+  res.redirect("/blog")
+}
+
+function addBlogView(req, res) {
+  res.render("add-blog");
+}
+
+function editBlogView(req, res) {
+  const { id } = req.params; // 0
+
+  const selectedData = data[id];
+  selectedData.id = id
+
+  res.render("edit-blog", { data: selectedData });
 }
 
 function contact(req, res) {
@@ -56,13 +96,13 @@ function testimonial(req, res) {
 function blogDetail(req, res) {
   const { id } = req.params;
 
-    const data = {
-        id: id,
-        title: "Title 1",
-        content : "Content 1"
-    }
+  const data = {
+    id: id,
+    title: "Title 1",
+    content: "Content 1",
+  };
 
-  res.render("blog-detail", {data: data});
+  res.render("blog-detail", { data: data });
 }
 
 app.listen(port, () => {
