@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const port = 5000;
 const path = require("path");
+const config = require("./config/config.json");
+const { Sequelize, QueryTypes, where } = require("sequelize");
+const sequelize = new Sequelize(config.development);
+const blogModel = require("./models").blog;
 
 // app.set = setting variable global, configuration, dll
 app.set("view engine", "hbs");
@@ -21,7 +25,7 @@ app.get("/blog", blog);
 
 app.post("/blog", addBlog);
 app.post("/edit-blog", editBlog);
-app.delete("/blog/:id", deleteBlog);
+app.post("/delete-blog/:id", deleteBlog);
 
 app.get("/add-blog", addBlogView);
 app.get("/edit-blog/:id", editBlogView);
@@ -37,52 +41,83 @@ function home(req, res) {
   res.render("index");
 }
 
-function blog(req, res) {
+async function blog(req, res) {
+  // const query = "SELECT * FROM blogs";
+  // const data = await sequelize.query(query, { type: QueryTypes.SELECT });
+
+  const data = await blogModel.findAll();
+
+  console.log("data", data);
+
   res.render("blog", { data });
 }
 
-function addBlog(req, res) {
+async function addBlog(req, res) {
   const { title, content } = req.body;
 
-  data.unshift({
+  // const query = `INSERT INTO blogs(title,content,image,"createdAt","updatedAt") VALUES('${title}','${content}','https://i.pinimg.com/originals/82/d4/92/82d4926dcf09dd4c73eb1a6c0300c135.jpg', now(), now())`;
+  // const data = await sequelize.query(query, { type: QueryTypes.INSERT });
+
+  const data = await blogModel.create({
     title,
     content,
     image:
-      "https://images.pexels.com/photos/21558419/pexels-photo-21558419/free-photo-of-black-and-white-photograph-of-daisies-in-the-sun.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      "https://i.pinimg.com/originals/82/d4/92/82d4926dcf09dd4c73eb1a6c0300c135.jpg",
   });
+
+  console.log("blog inserted", data);
 
   res.redirect("blog");
 }
 
-function deleteBlog(req, res) {
+async function deleteBlog(req, res) {
   const { id } = req.params;
 
-  data.splice(id, 1);
+  // const query = `DELETE FROM blogs WHERE id=${id}`;
+  // const data = await sequelize.query(query, { type: QueryTypes.DELETE });
+
+  const data = await blogModel.destroy({
+    where: { id },
+  });
+
+  console.log("blog deleted", data);
+
   res.redirect("/blog");
 }
 
-function editBlog(req,res) {
-  const {title, content, id} = req.body
+async function editBlog(req, res) {
+  const { title, content, id } = req.body;
 
-  data[id] = {
-    title,
-    content
-  }
+  // const query  = `UPDATE blogs SET title='${title}', content='${content}' WHERE id=${id}`
+  // const data = await sequelize.query(query, {type: QueryTypes.UPDATE})
 
-  res.redirect("/blog")
+  const data = await blogModel.update(
+    {
+      title,
+      content,
+    },
+    {
+      where: { id },
+    }
+  );
+
+  console.log("updated blog", data);
+
+  res.redirect("/blog");
 }
 
 function addBlogView(req, res) {
   res.render("add-blog");
 }
 
-function editBlogView(req, res) {
-  const { id } = req.params; // 0
+async function editBlogView(req, res) {
+  const { id } = req.params;
 
-  const selectedData = data[id];
-  selectedData.id = id
+  const data = await blogModel.findOne({
+    where: { id },
+  });
 
-  res.render("edit-blog", { data: selectedData });
+  res.render("edit-blog", { data });
 }
 
 function contact(req, res) {
@@ -93,16 +128,21 @@ function testimonial(req, res) {
   res.render("testimonial");
 }
 
-function blogDetail(req, res) {
-  const { id } = req.params;
+async function blogDetail(req, res) {
+  const { id } = req.params; // 2
 
-  const data = {
-    id: id,
-    title: "Title 1",
-    content: "Content 1",
-  };
+  // const query = `SELECT * FROM blogs WHERE id=${id}`
+  // const data = await sequelize.query(query, {type: QueryTypes.SELECT})
 
-  res.render("blog-detail", { data: data });
+  // console.log("blog detail ", data[0])
+
+  const data = await blogModel.findOne({
+    where: { id },
+  });
+
+  console.log("blog detail", data);
+
+  res.render("blog-detail", { data });
 }
 
 app.listen(port, () => {
