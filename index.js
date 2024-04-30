@@ -6,6 +6,10 @@ const config = require("./config/config.json");
 const { Sequelize, QueryTypes, where } = require("sequelize");
 const sequelize = new Sequelize(config.development);
 const blogModel = require("./models").blog;
+const User = require("./models").user;
+const bcrypt = require("bcrypt");
+const session = require("express-session")
+const flash =  require("express-flash")
 
 // app.set = setting variable global, configuration, dll
 app.set("view engine", "hbs");
@@ -18,6 +22,19 @@ app.use("/assets", express.static(path.join(__dirname, "./assets")));
 app.use(express.urlencoded({ extended: false }));
 // extended : false => querystring bawaan dari express
 // extended : true = > menggunakan query strign third party => qs
+
+app.use(session({
+  name: "mysession",
+  secret : "rahasiabangetdeh",
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    maxAge : 1000 * 60 * 60 * 24 // 1 hari
+  }
+}))
+
+app.use(flash())
 
 // route
 app.get("/", home);
@@ -34,7 +51,76 @@ app.get("/contact", contact);
 app.get("/testimonial", testimonial);
 app.get("/blog-detail/:id", blogDetail);
 
-const data = [];
+app.get("/login", loginView);
+app.get("/register", registerView);
+
+app.post("/login", login);
+app.post("/register", register);
+app.post("/logout", logout)
+
+function loginView(req, res) {
+  res.render("login");
+}
+
+async function login(req, res) {
+  const { email, password } = req.body;
+
+  console.log("email : ", email);
+  console.log("password : ", password);
+
+  const user = await User.findOne({
+    where: { email },
+  });
+
+  if(!user)  {
+    req.flash("danger", "Email is not found!")
+    return res.redirect("/login")
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, user.password)
+
+  if(!isPasswordValid) {
+    req.flash("danger", "Password is wrong!")
+    return res.redirect("/login")
+  }
+
+  req.session.isLogin = true
+  req.session.user = {
+    name : user.name,
+    email : user.email
+  }
+  
+  req.flash("success", "Login berhasil!")
+  res.redirect("/")
+}
+
+function registerView(req, res) {
+  res.render("register");
+}
+
+async function register(req, res) {
+  const { name, email, password } = req.body;
+
+  const salt = 10;
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  await User.create({
+    name,
+    email,
+    password: hashedPassword,
+  });
+
+  res.redirect("/");
+}
+
+async function logout(req,res) {
+  req.session.destroy(function(err) {
+    if(err) return console.error("Logout failed!")
+
+    console.log("Logout success!")
+    res.redirect("/")
+  })
+}
 
 // service
 function home(req, res) {
@@ -47,9 +133,12 @@ async function blog(req, res) {
 
   const data = await blogModel.findAll();
 
-  console.log("data", data);
+  const isLogin = req.session.isLogin
+  const user = req.session.user
 
-  res.render("blog", { data });
+  console.log(isLogin, user)
+
+  res.render("blog", { data, isLogin, user });
 }
 
 async function addBlog(req, res) {
@@ -65,8 +154,6 @@ async function addBlog(req, res) {
       "https://i.pinimg.com/originals/82/d4/92/82d4926dcf09dd4c73eb1a6c0300c135.jpg",
   });
 
-  console.log("blog inserted", data);
-
   res.redirect("blog");
 }
 
@@ -79,8 +166,6 @@ async function deleteBlog(req, res) {
   const data = await blogModel.destroy({
     where: { id },
   });
-
-  console.log("blog deleted", data);
 
   res.redirect("/blog");
 }
@@ -100,8 +185,6 @@ async function editBlog(req, res) {
       where: { id },
     }
   );
-
-  console.log("updated blog", data);
 
   res.redirect("/blog");
 }
@@ -139,8 +222,6 @@ async function blogDetail(req, res) {
   const data = await blogModel.findOne({
     where: { id },
   });
-
-  console.log("blog detail", data);
 
   res.render("blog-detail", { data });
 }

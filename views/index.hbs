@@ -1,27 +1,14 @@
-<!doctype html>
 <html>
   <head>
     <title>B54 - Project Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="../assets/css/index.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/css/nav.css"
-    />
-    <link
-      rel="stylesheet"
-      href="../assets/css/home.css"
-    />
+    <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="../assets/css/nav.css" />
+    <link rel="stylesheet" href="../assets/css/home.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <meta
-      name="viewport"
-      content="width=device-width; initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0" />
   </head>
 
   <body>
@@ -29,63 +16,46 @@
       <ul class="navbar-ul">
         <div class="navbar-left">
           <li>
-            <img
-              src="../assets/img/dumbways.png"
-              class="navbar-logo"
-            />
+            <img src="../assets/img/dumbways.png" class="navbar-logo" />
           </li>
           <li>
-            <a
-              href="index"
-              class="navbar-link active"
-            >
+            <a href="index" class="navbar-link active">
               Home
             </a>
           </li>
           <li>
-            <a
-              href="blog"
-              class="navbar-link"
-            >
+            <a href="blog" class="navbar-link">
               Blog
             </a>
           </li>
         </div>
         <div class="navbar-right">
           <li>
-            <a
-              href="contact"
-              class="navbar-contact-btn"
-            >
+            <a href="contact" class="navbar-contact-btn">
               Contact
             </a>
           </li>
-          <button
-            id="hamburger-button"
-            onclick="toggleHamburger()"
-          >
+          <button id="hamburger-button" onclick="toggleHamburger()">
             <i class="fa-solid fa-bars fa-2x"></i>
           </button>
         </div>
       </ul>
     </nav>
+
+    {{#if messages.success}}
+      <div style="padding: 20px; background-color: green; width:100%; color: white">
+        {{messages.success}}
+      </div>
+    {{/if}}
+
     <div class="hamburger-container hide">
-      <a
-        href="index"
-        class="hamburger-nav-link hamburger-active"
-      >
+      <a href="index" class="hamburger-nav-link hamburger-active">
         Home
       </a>
-      <a
-        href="blog"
-        class="hamburger-nav-link"
-      >
+      <a href="blog" class="hamburger-nav-link">
         Blog
       </a>
-      <a
-        href="contact"
-        class="hamburger-nav-link"
-      >
+      <a href="contact" class="hamburger-nav-link">
         Contact
       </a>
     </div>
@@ -107,10 +77,7 @@
           Saya adalah seorang Fullstack Developer. Saya memiliki pengalaman di
           bidang pemrograman selama kurang lebih 5 tahun.
         </p>
-        <table
-          border="1"
-          style="width: 100%"
-        >
+        <table border="1" style="width: 100%">
           <tr>
             <th>Experience</th>
             <th>Year</th>
@@ -135,22 +102,14 @@
 
         <div class="skill">
           <div>
-            <img
-              src="images/logo.png"
-              alt=""
-              srcset=""
-            />
+            <img src="images/logo.png" alt="" srcset="" />
             <h2>Javascript</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
             </p>
           </div>
           <div>
-            <img
-              src="images/logo.png"
-              alt=""
-              srcset=""
-            />
+            <img src="images/logo.png" alt="" srcset="" />
             <h2>Github</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
@@ -158,11 +117,7 @@
           </div>
 
           <div>
-            <img
-              src="images/logo.png"
-              alt=""
-              srcset=""
-            />
+            <img src="images/logo.png" alt="" srcset="" />
             <h2>Deployment</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, ea!
