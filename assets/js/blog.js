@@ -132,30 +132,6 @@ async function deletePost(index) {
 //   return `${date} ${months[month]} ${year} ${hours}:${minutes} WIB`;
 // }
 
-// function getDistanceTime(timePost) {
-//   // fungsi untuk menghitung jarak antara waktu ketika kita posting blog dengan waktu sekarang
-//   let timeNow = new Date();
-
-//   let distance = timeNow - timePost; // hasilnya miliseconds -> 1 detik = 1000ms
-
-//   // Math.floor() // membulatkan ke bawah, ex : 1.3 -> 1
-//   // Math.round() // membulatkan ke terdekat, ex : 1.3 -> 1 OR 1.7 -> 2
-//   // Math.ceil() // membulatkan ke atas, ex : 1.3 -> 2
-//   const seconds = Math.floor(distance / 1000);
-//   const minutes = Math.floor(distance / 1000 / 60);
-//   const hours = Math.floor(distance / 1000 / 60 / 60);
-//   const day = Math.floor(distance / 1000 / 60 / 60 / 24);
-
-//   if (seconds < 60) {
-//     return seconds + " seconds ago";
-//   } else if (minutes < 60) {
-//     return minutes + " minutes ago";
-//   } else if (hours < 60) {
-//     return hours + " hours ago";
-//   } else if (day < 24) {
-//     return day + " day ago";
-//   }
-// }
 
 // renderBlog();
 

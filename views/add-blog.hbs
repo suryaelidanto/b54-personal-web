@@ -62,7 +62,7 @@
     <div class="container text-center my-5">
       <h1>Create Post Blog</h1>
 
-      <form method="post" action="/blog">
+      <form method="post" action="/blog" enctype="multipart/form-data">
         <div class="input-group mb-3 d-flex flex-column align-items-start">
           <label style="font-weight: bold">Title</label>
           <input type="text" class="form-control w-100" id="input-blog-title" name="title" />
@@ -80,7 +80,7 @@
 
         <div class="input-group mb-3 d-flex flex-column align-items-start">
           <label style="font-weight: bold">Upload Image</label>
-          <input type="file" class="form-control w-100" id="input-blog-image" />
+          <input type="file" class="form-control w-100" id="input-blog-image" name="image" />
         </div>
 
         <div class="w-100 d-flex justify-content-end">
